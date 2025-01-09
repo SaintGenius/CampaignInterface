@@ -19,7 +19,7 @@
       margin: 20px 0;
       border-radius: 8px;
     }
-    audio {
+    audio, button {
       margin-top: 20px;
     }
   </style>
@@ -28,11 +28,32 @@
   <h1>The Eclipsed Gate</h1>
   <img src="https://saintgenius.github.io/CampaignInterface/assets/images/eclipsed_gate.jpg" alt="The Eclipsed Gate">
   <p>An ancient archway carved from weathered stone, etched with glowing celestial runes and swirling with arcane energy.</p>
-  
+
+  <!-- Fallback Button -->
+  <button id="playAudio" style="display: none;">Play Sound</button>
+
   <!-- Audio Element -->
-  <audio controls autoplay>
+  <audio id="portalHum">
     <source src="https://saintgenius.github.io/CampaignInterface/assets/sounds/portal_hum.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+
+  <!-- JavaScript -->
+  <script>
+    const audio = document.getElementById('portalHum');
+    const playButton = document.getElementById('playAudio');
+
+    // Attempt to autoplay audio
+    audio.play().catch(() => {
+      // If autoplay fails, show the play button
+      playButton.style.display = 'block';
+    });
+
+    // Play audio when button is clicked
+    playButton.addEventListener('click', () => {
+      audio.play();
+      playButton.style.display = 'none'; // Hide button once audio starts
+    });
+  </script>
 </body>
 </html>
