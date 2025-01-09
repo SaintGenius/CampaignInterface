@@ -8,17 +8,25 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #000;
-            color: #fff;
+            background-color: black;
+            color: white;
+        }
+        #nextSceneButton {
+            background-color: #444;
+            color: white;
+            font-size: 24px;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        #nextSceneButton:hover {
+            background-color: #666;
         }
         img {
-            width: 90%;
+            width: 100%;
             border-radius: 8px;
-        }
-        .description {
-            margin-top: 10px;
-        }
-        audio {
             margin-top: 20px;
         }
     </style>
@@ -26,12 +34,41 @@
 <body>
     <h2>The Eclipsed Gate</h2>
     <img src="https://saintgenius.github.io/CampaignInterface/assets/images/eclipsed_gate.jpg" alt="The Eclipsed Gate">
-    <div class="description">
-        An ancient archway carved from weathered stone, etched with glowing celestial runes and swirling with arcane energy.
-    </div>
-    <audio controls autoplay>
+
+    <audio id="ambientSound" autoplay muted loop>
         <source src="https://saintgenius.github.io/CampaignInterface/assets/sounds/portal_hum.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+
+    <audio id="sceneMusic">
+        <source src="https://saintgenius.github.io/CampaignInterface/assets/sounds/scene_music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="description">
+        An ancient archway carved from weathered stone, etched with glowing celestial runes and swirling with arcane energy.
+    </div>
+
+    <button id="nextSceneButton">Next Scene</button>
+
+    <script>
+        const ambientSound = document.getElementById('ambientSound');
+        const sceneMusic = document.getElementById('sceneMusic');
+        const nextSceneButton = document.getElementById('nextSceneButton');
+
+        // Unmute ambient sound on first click anywhere
+        document.body.addEventListener('click', () => {
+            if (ambientSound.muted) {
+                ambientSound.muted = false;
+            }
+        });
+
+        // Next Scene Button Logic
+        nextSceneButton.addEventListener('click', () => {
+            sceneMusic.currentTime = 0; // Start music from the beginning
+            sceneMusic.play();
+            nextSceneButton.style.display = 'none'; // Hide the button after clicking
+        });
+    </script>
 </body>
 </html>
