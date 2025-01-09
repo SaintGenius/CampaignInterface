@@ -6,9 +6,9 @@
     <title>The Eclipsed Gate</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: black;
-            color: white;
+            font-family: 'Georgia', serif;
+            background-color: #1a1a1a;
+            color: #f5f5f5;
             text-align: center;
             margin: 0;
             padding: 0;
@@ -20,8 +20,29 @@
         .container {
             padding: 20px;
         }
-        .audio-container {
+        .button-container {
             margin-top: 20px;
+        }
+        .start-button {
+            background: linear-gradient(to right, #4b1e0d, #8c1c13);
+            color: #fffbe6;
+            border: 2px solid #d4af37;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-family: 'Georgia', serif;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px #d4af37;
+            transition: all 0.3s ease;
+        }
+        .start-button:hover {
+            background: linear-gradient(to right, #8c1c13, #4b1e0d);
+            box-shadow: 0 6px #d4af37;
+            transform: translateY(-2px);
+        }
+        .start-button:active {
+            box-shadow: 0 2px #d4af37;
+            transform: translateY(2px);
         }
     </style>
 </head>
@@ -30,19 +51,27 @@
         <h1>The Eclipsed Gate</h1>
         <img src="https://saintgenius.github.io/CampaignInterface/assets/images/eclipsed_gate.jpg" alt="The Eclipsed Gate">
         <p>An ancient archway carved from weathered stone, etched with glowing celestial runes and swirling with arcane energy.</p>
-        <div class="audio-container">
-            <audio id="portalHum" autoplay>
+        <div class="button-container">
+            <button class="start-button" onclick="startExperience()">Begin Scene</button>
+        </div>
+        <div class="audio-container" style="display:none;">
+            <audio id="portalHum">
                 <source src="https://saintgenius.github.io/CampaignInterface/assets/sounds/portal_hum.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
     </div>
     <script>
-        // Attempt to play the audio; log fallback in case of failure
-        const audio = document.getElementById('portalHum');
-        audio.play().catch(() => {
-            console.log("Autoplay failed; manual interaction required.");
-        });
+        function startExperience() {
+            const audio = document.getElementById('portalHum');
+            audio.play().then(() => {
+                console.log("Audio playing");
+            }).catch(() => {
+                console.log("User interaction required to start audio");
+            });
+            document.querySelector('.start-button').style.display = 'none';
+            document.querySelector('.audio-container').style.display = 'block';
+        }
     </script>
 </body>
 </html>
