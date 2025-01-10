@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Web Interface Test</title>
+</head>
+<body>
+    <h1 id="scene-title"></h1>
+    <img id="scene-image" alt="Scene Image" style="max-width: 100%; height: auto;" />
+    <p id="scene-description"></p>
+    <script>
+        fetch('web_interface_image_push.json')  // Ensure the JSON file is in the same folder
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('scene-title').innerText = data.scene;
+                document.getElementById('scene-image').src = data.image_url;
+                document.getElementById('scene-description').innerText = data.description;
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+    </script>
+</body>
+</html>

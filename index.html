@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campaign Interface</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campaign Interface</title>
 </head>
 <body>
-    <h1>Campaign Interface Sandbox</h1>
-    <button onclick="playSound()">Play Portal Hum</button>
-    <script>
-        function playSound() {
-            const audio = new Audio('./assets/sounds/portal_hum.mp3');
-            audio.play();
-        }
-    </script>
+  <h1>Dynamic Campaign Interface</h1>
+  <div id="image-container"></div>
+  <button onclick="loadImage()">Load Image</button>
+
+  <script>
+    async function loadImage() {
+      const response = await fetch('./web_interface_image_push.json');
+      const data = await response.json();
+      const imageUrl = data.image_url;
+      document.getElementById('image-container').innerHTML = `<img src="${imageUrl}" alt="Dynamic Scene" style="max-width: 100%;">`;
+    }
+  </script>
 </body>
 </html>
-

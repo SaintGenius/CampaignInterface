@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Start</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('../images/session_bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            padding: 50px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Session</h1>
+        <p>Session 1: The Eclipsed Gate</p>
+        <p>Date: 2025-01-09</p>
+        <button class="button" onclick="startSession()">Begin</button>
+    </div>
+    <audio id="bgAudio" autoplay loop>
+        <source src="../sounds/portal_hum.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        function startSession() {
+            document.getElementById("bgAudio").pause();
+            window.location.href = "eclipsed_gate.html";
+        }
+    </script>
+</body>
+</html>
+
