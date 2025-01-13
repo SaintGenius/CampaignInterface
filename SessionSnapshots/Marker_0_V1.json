@@ -1,0 +1,199 @@
+{
+    "marker_name": "Campaign & World State",
+    "type": "Hidden",
+    "icon": "\ud83d\udcdc",
+    "color": "#444444",
+    "description": "Represents both the current overarching state of the campaign and the last archived world state.",
+    "state": {
+        "playbook_summary": {
+            "current_scene": "Inn Room After Seraphine's Vision",
+            "scene_state": {
+                "portal_state": "Stable",
+                "environmental_effects": {
+                    "frost": "Lingering icy breath from Seraphine's presence.",
+                    "magic_hum": "Faint hum of residual shadow energy.",
+                    "ambient_sound": "\ud83d\udd0a The faint groan of old wood, soft wind whistling through cracks in the inn's walls."
+                }
+            },
+            "session_objectives": [
+                "Discuss Seraphine's vision and implications.",
+                "Prepare to travel to Black Hollow.",
+                "Investigate lingering frost effects and residual shadow magic."
+            ],
+            "narrative_hooks": [
+                "What is Seraphine's connection to the Hollow King?",
+                "Why is the portal stable despite shadow magic's presence?"
+            ],
+            "characters": {
+                "Rieta": {
+                    "current_hp": 31,
+                    "max_hp": 31,
+                    "attributes": {
+                        "strength": 14,
+                        "dexterity": 16,
+                        "constitution": 13,
+                        "intelligence": 10,
+                        "wisdom": 15,
+                        "charisma": 12
+                    },
+                    "features": {
+                        "proficiencies": ["Stealth", "Perception"],
+                        "abilities": ["Second Wind", "Action Surge"]
+                    },
+                    "inventory": [
+                        "Quiver of Endless Arrows",
+                        "Celestial Shard",
+                        "Crystal-Handled Dagger",
+                        "Healing Potion x2"
+                    ],
+                    "xp": 4700,
+                    "status_effects": []
+                },
+                "Gondwyn": {
+                    "current_hp": 41,
+                    "max_hp": 41,
+                    "attributes": {
+                        "strength": 18,
+                        "dexterity": 12,
+                        "constitution": 16,
+                        "intelligence": 8,
+                        "wisdom": 11,
+                        "charisma": 10
+                    },
+                    "features": {
+                        "proficiencies": ["Athletics", "Intimidation"],
+                        "abilities": ["Divine Smite", "Lay on Hands"]
+                    },
+                    "inventory": [
+                        "Lantern's Edge",
+                        "The Bastion Eternal",
+                        "Healing Potion x2"
+                    ],
+                    "xp": 4600,
+                    "status_effects": []
+                }
+            }
+        },
+        "manual_map_updates": [
+            {
+                "marker_name": "Stabilized Portal",
+                "type": "Scene",
+                "icon": "\u26e9\ufe0f",
+                "color": "#8A2BE2",
+                "description": "A stabilized portal glowing with faint blue light, now safe to cross.",
+                "linked_events": [
+                    "Marker dependency: Black Hollow proximity detected.",
+                    "Activation triggers: Frost dissipates when the portal is crossed."
+                ]
+            },
+            {
+                "marker_name": "Campaign & World State",
+                "type": "Hidden",
+                "icon": "\ud83d\udcdc",
+                "color": "#444444",
+                "description": "Represents both the current overarching state of the campaign and the last archived world state."
+            }
+        ],
+        "pending_actions": [
+            "Update the stabilized portal marker in Azgaar's map tool.",
+            "Ensure raw GitHub image URLs are correctly pasted into the marker text fields.",
+            "Update the unified Campaign & World State marker.",
+            "Upload the updated Master_Map.JSON to GitHub."
+        ],
+        "development_notes": [
+            "Voicemod sound bank integration pending.",
+            "Stream Deck layout optimization planned.",
+            "Refine persistent ambient sound triggers for future sessions.",
+            "Ensure consistency for hidden state markers in Azgaar."
+        ],
+        "mechanics_updates": {
+            "new_rules": [
+                "Players now roll individually for environmental hazards, with DCs based on their specific abilities.",
+                "Adjust encounter pacing to align with session objectives, ensuring smoother transitions between combat and exploration."
+            ],
+            "clarifications": [
+                "Healing Potions require a bonus action to use during combat.",
+                "Environmental effects (like lingering frost) persist until explicitly addressed by players."
+            ]
+        },
+        "session_snapshot_reference": {
+            "path": "/mnt/data/session_snapshot.json",
+            "status": "Active",
+            "version": "v1.0"
+        },
+        "metadata": {
+            "last_updated": "2025-01-10T14:20:03.776253",
+            "session_closed": "2025-01-10T14:20:03.776253",
+            "document_version": "v1.0"
+        },
+        "external_links": {
+            "AzgaarMap": "https://azgaar.github.io/Fantasy-Map-Generator/",
+            "GitHubRepo": "https://github.com/SaintGenius/CampaignInterface",
+            "CampaignMapRepo": "https://github.com/SaintGenius/Azgaar-Map-Repository",
+            "CampaignCardsRepo": "https://github.com/SaintGenius/CampaignCards",
+            "DnDRepo": "https://github.com/SaintGenius/DungeonsnDragons",
+            "PhotoGalleryRepo": "https://github.com/SaintGenius/Photo-Gallery"
+        },
+        "instructions": {
+            "end_session_procedure": {
+                "steps": [
+                    "Generate an end session playbook JSON that includes the updated Campaign & World State.",
+                    "Produce a human-readable version of the session summary, playbook, and character sheets for review.",
+                    "Post the updated Campaign & World State marker contents as the new session primer.",
+                    "Log pending actions and development notes into the Campaign & World State marker.",
+                    "Ensure all linked references (e.g., Azgaar markers, GitHub updates) are synchronized.",
+                    "Update both the marker in Azgaar's map tool and the canvas Campaign Marker 0 document so they are copies of each other."
+                ],
+                "outputs": {
+                    "playbook_json": "Updated end session playbook JSON for next session.",
+                    "session_summary": "Readable session summary with key updates.",
+                    "updated_marker": "New Campaign & World State marker contents."
+                }
+            },
+            "session_start_checklist": {
+                "steps": [
+                    "Import the Master Map JSON into the chat.",
+                    "Verify the alignment of Marker 0 with the session snapshot.",
+                    "Confirm scene details, session objectives, and character states.",
+                    "Ensure all tools (Azgaar map, GitHub, Voicemod) are updated and synchronized.",
+                    "Acknowledge readiness to begin the session."
+                ]
+            },
+            "session_snapshot_handling": {
+                "end_session_steps": [
+                    "Generate an updated session_snapshot.json reflecting the final state of the session.",
+                    "Ensure the snapshot version matches the document_version in the campaign marker.",
+                    "Archive the snapshot alongside the campaign marker for traceability."
+                ],
+                "start_session_steps": [
+                    "Load the session_snapshot.json to initialize the campaign state for the new session.",
+                    "Sync with external tools (e.g., Azgaar map, Voicemod soundbank)."
+                ]
+            },
+            "human_readable_format": {
+                "summary": "Narrative recap of key events and decisions from the session.",
+                "mechanics": "Changes to rules, clarifications, and special instructions.",
+                "characters": "Fully detailed character sheets with updated attributes, inventory, and status effects.",
+                "objectives": "Clear objectives and hooks for the next session."
+            },
+            "scene_generation": {
+                "image_instructions": "Generate images based on key moments, using narrative descriptions for visual cues (e.g., a frost-covered portal with blue light).",
+                "sound_prompts": {
+                    "ambient": ["Soft wind whistling", "Creaking wood"],
+                    "triggered_sounds": {
+                        "portal_activated": "Resonant hum and whoosh of magic."
+                    }
+                },
+                "icons_usage": {
+                    "NPC Dialogue": "\ud83d\udcac",
+                    "DM Prompts": "\ud83d\udee1\ufe0f",
+                    "Player Actions": "\ud83c\udfb2",
+                    "Choices": "\ud83d\udd39",
+                    "Lore": "\ud83d\udcdc",
+                    "Visual Aid": "\ud83c\uddbc\ufe0f",
+                    "Sound Cue": "\ud83d\udd0a"
+                }
+            }
+        }
+    }
+}
